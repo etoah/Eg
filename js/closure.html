@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+	foo = function() {
+        this.myName = "Foo function.";
+    }
+    foo.prototype.sayHello = function() {
+        console.log(this.myName);
+    }
+    foo.prototype.bar = function() {
+        setTimeout(this.sayHello.apply(this), 1000);
+    }
+    var f = new foo();
+    f.bar();
+	
+	
+	console.log("hahah");
+	
+	</script>
+</head>
+<body>
+	
+</body>
+</html>
