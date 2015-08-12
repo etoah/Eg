@@ -11,11 +11,18 @@
         console.log(this.myName);
     }
     foo.prototype.bar = function() {
-        setTimeout(this.sayHello.apply(this), 1000);
+		var that =this;
+        setTimeout(this.sayHello, 1000);
     }
     var f = new foo();
     f.bar();
+	function sayHello()
+	{
+		console.log("globe sayName;");
+	}
 	
+	
+	var myName="globle myName";
 	
 	console.log("hahah");
 	
