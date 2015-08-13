@@ -9,8 +9,6 @@ html,body
 	margin: 0 auto;
 	width:500px;
 	top:40px;
-	
-	
 }
 
 
@@ -42,10 +40,17 @@ html,body
    text-align: right;
    color: green;
   font-weight: bold;
-  text-decoration:none;
+ 
 }
 
 .item-editor
 {
 	display:none;
+}
+
+.panel-row>a
+{
+	float:right;
+	padding:0 4px;
+    text-decoration:none;
 }
