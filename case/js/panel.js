@@ -2,14 +2,13 @@
 	var MODEFY="修改";
 	var SAVE="保存";
 	var DELETE="删除";
-	var ITEM_TEMPLATE='<div class="panel-row"><span class="item-text">未命名</span><input type="text" value="未命名"  class="item-editor"/> <a href="javascript:;" data-editor="false">'
+	var ITEM_TEMPLATE='<div class="panel-row"><span class="item-text">未命名</span><input type="text" name="item" value="未命名"  class="item-editor"/> <a href="javascript:;" data-editor="false">'
 	+MODEFY+'</a><a href="javascript:;" data-delete="true">'
 	+DELETE+'</a></div>';
-
 	$("[data-additem]").click(function(){
-		$(this).parent().before(ITEM_TEMPLATE);
-		
+		$(this).parent().before(ITEM_TEMPLATE);		
 	})
+	
 	$(".panel").on('click',"[data-editor='false']",function(){
 		
 		$(this).siblings(".item-text").hide();
