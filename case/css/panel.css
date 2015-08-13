@@ -44,3 +44,8 @@ html,body
   font-weight: bold;
   text-decoration:none;
 }
+
+.item-editor
+{
+	display:none;
+}
