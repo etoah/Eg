@@ -8,7 +8,7 @@
 		$(this).parent().before(ITEM_TEMPLATE);
 		
 	})
-	$(".panel-row").on('click',"[data-editor='false']",function(){
+	$(".panel").on('click',"[data-editor='false']",function(){
 		
 		$(this).siblings(".item-text").hide();
 		$(this).siblings(".item-editor").show();
@@ -16,7 +16,7 @@
 		$(this).attr('data-editor','true');
 		
 	});
-	$(".panel-row").on('click',"[data-editor='true']",function(){
+	$(".panel").on('click',"[data-editor='true']",function(){
 		
 		var text=$(this).siblings(".item-text");
 		var editor=$(this).siblings(".item-editor");
