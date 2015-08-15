@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>mask</title>
+	<style>
+	html,body
+	{
+		padding:0px;
+		margin:0px
+	}
+	
+	.con
+	{
+		position:relative;
+		margin:30px auto;
+		width:600px;
+		min-height:300px;
+		max-height:600px;
+		
+		border:1px solid #ddd;
+		border-radius:15px;
+		
+		
+		overflow:auto;
+		
+		
+	}
+	
+	.center
+	{
+		position:absolute;
+		border:1px solid #ddd;
+		border-radius:10px;
+		margin:auto;
+		left:0px;right:0px;top:0px;bottom:0px;
+		
+		height:200px;
+		width:200px;
+		
+	}
+	
+	#pagePos
+	{
+		height:100px;
+	}
+	
+	
+	</style>
+</head>
+<body>
+<div class="con">
+	<p id="pagePos"></p>
+	<div class="center" id="masked"></div>
+</div>
+<script src="js/jquery.js"></script>
+<script>
+;(function(document,window){
+	function addMask(element,aph)
+	{
+		var pos=getPostion(element);
+		var mask=document.createElement('div');
+		mask.style.position="absolute";
+		mask.style.top=pos.y+'px';
+		mask.style.left=pos.x+'px';
+		console.log(ele.clientWidth);
+		mask.style.width=ele.clientWidth+'px';
+		mask.style.height=ele.clientHeight+'px';
+		mask.style.zIndex="999";
+		mask.style.backgroundColor="rgba(0,0,0,"+aph+")";	
+		//mask.setAttribute("","");
+		document.body.appendChild(mask);
+	}
+	function getPostion(element)
+	{
+		return {
+			x:element.getBoundingClientRect().left,
+			y:element.getBoundingClientRect().top
+		}
+	}
+	
+	function setAtrr(ele)
+	{
+		ele.style.zIndex="0";
+	}
+	
+	function Mask(id)
+	{
+		this.element=document.getElementById(id);	
+		
+	}
+	Mask.prototype={
+		constructor:Mask,
+		mask:function(aph){
+			var aphv=aph||0.2;
+			setAtrr(this.element);
+			addMask(this.element,aphv);
+		}	
+	}	
+	window.Mask=Mask;
+
+})(document,window)
+
+
+var ele=document.getElementById('masked');
+ele.addEventListener('click',function(){
+
+	var m=new Mask("masked");
+	m.mask('0.1');
+
+ele.innerHTML="ele.offsetTop:"+ele.offsetTop+"<br />"
+	+"ele.scrollTop:"+ele.scrollTop+"<br />"
+	+"ele.clientTop:"+ele.clientTop+"<br />"+
+	+"ele.getBoundingClientRect():"+ele.getBoundingClientRect().top+"<br />"	
+	;
+	
+})
+
+$(document).mousemove(function(e){
+  $("#pagePos").html(e.pageX + ", " + e.pageY);
+});
+</script>
+
+
+
+</body>
+</html>

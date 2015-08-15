@@ -14,8 +14,14 @@
 		var that =this;
         setTimeout(this.sayHello, 1000);
     }
+	
+	foo.prototype.bar2 = function() {
+		var that =this;
+        setTimeout(function(){that.sayHello();}, 100);
+    }
     var f = new foo();
     f.bar();
+	f.bar2();
 	function sayHello()
 	{
 		console.log("globe sayName;");
