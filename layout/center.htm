@@ -4,19 +4,88 @@
 	<meta charset="UTF-8">
 	<title>Document</title>
 	<style>
-	div{
-	background: red;
-	height:100px;
-	width:100px;
-	position:absolute;
-	left:50%;
-	top:50%;
-	margin-left:-50px;
-	margin-top:-50px;
-	}
+		html,body
+		{
+			padding:0px;
+			margin:0px;
+		}
+		.con
+		{
+			position:relative;
+			width:800px;
+			margin:0 auto;
+			padding:10px;
+		}
+		.row
+		{
+			margin:10px;
+			border:1px solid #ddd;
+			border-radius:5px;
+			min-height:20px;
+			overflow:hidden;
+		}
+
+		/* block */
+		.center-con
+		{
+			position:relative;
+			height:200px;
+		}
+
+		.absolute-center
+		{
+			position:absolute;
+			left:0px;
+			right:0px;
+			top:0px;
+			bottom:0px;
+			margin:auto;
+			
+			height:100px;
+			width:300px;
+			background:#4FA46B
+		}
+
+		.absolute-center,.relative-center
+		{
+			text-align:center;
+		}
+
+		.relative-center
+		{
+			position:relative;
+			left:50%;
+			top:50%;
+			margin-top:-50px;
+			margin-left:-150px;
+			height:100px;
+			width:300px;
+			background:#4FA46B
+		}
+
+
+		.line-center
+		{
+			line-height:100px;
+			font-size:32px;
+
+			color:#FFF;
+		}
+
 	</style>
 </head>
 <body>
-	<div onclick="this.style.color='#0ff';this.background='#000';">样谍 谍</div>
+	<div class="con">
+	<div class="row center-con">
+		<div class="absolute-center"><span class="line-center">absolute-center</span></div>
+	</div>
+	<div class="row center-con">
+		<div class="relative-center"><span class="line-center">relative-center</span></div>
+	</div>
+	<div class="row"></div>
+	<div class="row"></div>
+	<div class="row"></div>
+	<div class="row"></div>
+	</div>
 </body>
 </html>

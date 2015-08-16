@@ -1,0 +1,21 @@
+html,body
+{
+	padding:0px;
+	margin:0px;
+}
+.con
+{
+	position:relative;
+	width:800px;
+	margin:0 auto;
+	padding:10px;
+}
+
+.row
+{
+	margin:10px;
+	border:1px solid #ddd;
+	border-radius:5px;
+	min-height:20px;
+	overflow:hidden;
+}
