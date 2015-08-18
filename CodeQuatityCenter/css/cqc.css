@@ -1,0 +1,55 @@
+.leftTips p
+{
+    line-height: 80px;
+    height: 32%;
+}
+
+
+.rightTips p {
+    line-height: 60px;
+    height: 24%;
+}
+
+.leftTips:first-child,.leftTips:last-child
+{
+
+}
+.rightTips:first-child,.rightTips:last-child  {
+
+}
+
+#ukBoard
+{
+    overflow: auto;
+}
+
+#ukBoard .float-l
+{
+    position: relative;
+    width: 260px;
+    height: 260px;
+
+}
+#ukBoard .float-r
+{
+    width: 820px;
+
+}
+
+#qBoard
+{
+    overflow: auto;
+}
+
+#qBoard .float-l
+{
+    position: relative;
+    width: 260px;
+    height: 260px;
+
+}
+#qBoard .float-r
+{
+    width: 820px;
+
+}
