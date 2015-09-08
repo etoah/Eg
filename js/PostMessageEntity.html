@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="../layout/css/flex.css"/>
+
+
+</head>
+<body>
+
+
+<div class="wrap">
+
+    <div class="content">
+
+        <textarea name="" id="data" cols="30" rows="10"></textarea>
+        <input type="button"  id="submit" value="Submit" />
+
+
+    </div>
+    <div class="content" id="show"></div>
+
+</div>
+<script>
+    function addEvent(element, event, callback) {
+        if (element.addEventListener) //DOM 2
+        {
+            element.addEventListener(event, callback);
+
+        }
+        else if (element.attachEvent)//less than IE9
+        {
+            element.attachEvent('on' + event, callback);
+        }
+        else//dom 0
+        {
+            element['on' + event] = callback;
+        }
+    }
+
+    addEvent(window,"load",function(){
+
+        var submit=document.getElementById("submit"),
+                data=document.getElementById("data"),
+                show=document.getElementById("show");
+        addEvent(submit,"click",function(){
+
+            window.postMessage(data.value,'*');
+
+        });
+
+        addEvent(window,"messgae",function(event){
+            show.innerHTML=event.data;
+        });
+
+    });
+
+
+
+
+</script>
+</body>
+</html>
