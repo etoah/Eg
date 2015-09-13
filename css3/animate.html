@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background: #f00;
+            animation: myfirst 5s;
+            -webkit-animation: mymove 5s; /*Safari and Chrome*/
+        }
+        @keyframes myfirst {
+            to {
+                background: #fff;
+            }
+        }
+        @-webkit-keyframes myfirst /*Safari and Chrome*/
+        {
+            to {
+                background: #fff;
+            }
+        }
+    </style>
+</head>
+<body>
+<p>Internet Explorer9-浏览器不支持animation 属性。</p>
+<div></div>
+</body>
+</html>
