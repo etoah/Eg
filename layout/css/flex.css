@@ -1,0 +1,49 @@
+/* 布局 */
+	body,html
+	{
+		height:100%;
+		border:0px;
+		padding:0px;
+		margin:0px; 
+	}
+	.wrap
+	{
+		position:relative;
+		height:100%;
+		flex-direction:column;/*定义主轴的方向*/
+		justify-content:flex-start;
+		align-items: center;
+	}
+
+	.box,.wrap{
+		display: flex;
+		display: -webkit-flex;
+	}
+	.box-col
+	{
+
+		width: 80%;
+		border:1px solid #EEaaaa;
+	}
+
+	.content,.box,footer,header
+	{
+		border:1px solid #aaa;
+		border-radius: 3px;
+		margin: 10px;
+		padding: 10px;
+	}
+
+	.box-col
+	{
+		flex-direction: column;
+		justify-content: flex-start;
+
+	}
+
+
+
+
+
+
+

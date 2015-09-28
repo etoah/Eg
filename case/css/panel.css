@@ -1,0 +1,56 @@
+html,body
+{
+	padding:0px;
+	margin:0px;
+}
+.con
+{
+	position:relative;
+	margin: 0 auto;
+	width:500px;
+	top:40px;
+}
+
+
+.panel
+{
+	width:100%;
+}
+
+.panel-row,.panel-title,.panel-footer
+{
+	height:28px;
+	line-height:28px;
+	padding:0 4px;
+}
+.panel-title
+{
+	background: #059ed3;
+	color: #fff;
+}
+.panel-row
+{
+	border-top:1px solid #aaa;
+
+}
+
+.panel-footer
+{
+   background: #ccc;
+   text-align: right;
+   color: green;
+  font-weight: bold;
+ 
+}
+
+.item-editor
+{
+	display:none;
+}
+
+.panel-row>a
+{
+	float:right;
+	padding:0 4px;
+    text-decoration:none;
+}

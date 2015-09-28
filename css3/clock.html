@@ -1,0 +1,405 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>CSS3时钟</title>
+    <style type="text/css">
+        *{
+            padding:0;
+            margin:0;
+            list-style:none;
+        }
+        .box{
+            width:300px;
+            height:300px;
+            border:1px solid #ccc;
+            position:absolute;
+            left:50%;
+            top:50%;
+            margin:-150px 0 0 -150px;
+            border-radius:300px;
+        }
+        .box:after{
+            width:12px;
+            height:12px;
+            border-radius:12px;
+            overflow:hidden;
+            display:block;
+            content:"";
+            background:#666;
+            top:50%;
+            left:50%;
+            margin:-6px 0 0 -6px;
+            position:absolute;
+            z-index:9;
+        }
+
+
+        .seconds{
+            width:1px;
+            height:130px;
+            -webkit-transform-origin: left bottom;
+            -moz-transform-origin: left bottom;
+            -o-transform-origin: left bottom;
+            overflow:hidden;
+            background:red;
+            border-radius:3px;
+            bottom:150px;
+            left:150px;
+            position:absolute;
+
+            -moz-animation-name: seconds;
+            -moz-animation-duration:60s;
+            -moz-animation-iteration-count:infinite;
+            -moz-animation-timing-function:linear;
+
+            -webkit-animation-name: seconds;
+            -webkit-animation-duration:60s;
+            -webkit-animation-iteration-count:infinite;
+            -webkit-animation-timing-function:linear;
+
+            -o-animation-name: seconds;
+            -o-animation-duration:60s;
+            -o-animation-iteration-count:infinite;
+            -o-animation-timing-function:linear;
+            z-index:8;
+        }
+
+
+        @-moz-keyframes seconds{
+            0% {
+                -moz-transform: rotate(0deg);
+            }
+            100% {
+                -moz-transform: rotate(360deg);
+            }
+        }
+        @-webkit-keyframes seconds{
+            0% {
+                -webkit-transform: rotate(0deg);
+            }
+            100% {
+                -webkit-transform: rotate(360deg);
+            }
+        }
+        @-o-keyframes seconds{
+            0% {
+                -o-transform: rotate(0deg);
+            }
+            100% {
+                -o-transform: rotate(360deg);
+            }
+        }
+
+
+        .hours{
+            width:4px;
+            height:70px;
+            -webkit-transform-origin: left bottom;
+            -moz-transform-origin: left bottom;
+            -o-transform-origin: left bottom;
+            overflow:hidden;
+            background:#999;
+            border-radius:3px;
+            bottom:150px;
+            left:149px;
+            position:absolute;
+
+            -moz-animation-name: hours;
+            -moz-animation-duration:43200s;
+            -moz-animation-iteration-count:infinite;
+            -moz-animation-timing-function:linear;
+
+            -webkit-animation-name: hours;
+            -webkit-animation-duration:43200s;
+            -webkit-animation-iteration-count:infinite;
+            -webkit-animation-timing-function:linear;
+
+            -o-animation-name: hours;
+            -o-animation-duration:43200s;
+            -o-animation-iteration-count:infinite;
+            -o-animation-timing-function:linear;
+            z-index:6;
+        }
+
+
+        @-moz-keyframes hours {
+            0% {
+                -moz-transform: rotate(0deg);
+            }
+
+            100% {
+                -moz-transform: rotate(360deg);
+            }
+        }
+        @-webkit-keyframes hours {
+            0% {
+                -webkit-transform: rotate(0deg);
+            }
+
+            100% {
+                -webkit-transform: rotate(360deg);
+            }
+        }
+        @-o-keyframes hours {
+            0% {
+                -o-transform: rotate(0deg);
+            }
+
+            100% {
+                -o-transform: rotate(360deg);
+            }
+        }
+
+
+
+        .minutes{
+            width:3px;
+            height:95px;
+            -webkit-transform-origin: left bottom;
+            -moz-transform-origin: left bottom;
+            -o-transform-origin: left bottom;
+            overflow:hidden;
+            background:#ccc;
+            border-radius:3px;
+            bottom:150px;
+            left:150px;
+            position:absolute;
+            z-index:7;
+            -moz-animation-name: minutes;
+            -moz-animation-duration:3600s;
+            -moz-animation-iteration-count:infinite;
+            -moz-animation-timing-function:linear;
+            -webkit-animation-name: minutes;
+            -webkit-animation-duration:3600s;
+            -webkit-animation-iteration-count:infinite;
+            -webkit-animation-timing-function:linear;
+
+            -o-animation-name: minutes;
+            -o-animation-duration:3600s;
+            -o-animation-iteration-count:infinite;
+            -o-animation-timing-function:linear;
+        }
+
+
+        @-moz-keyframes minutes {
+            0% {
+                -webkit-transform: rotate(0deg);
+                -moz-transform: rotate(0deg);
+                -o-transform: rotate(0deg);
+            }
+
+            100% {
+                -webkit-transform: rotate(360deg);
+                -moz-transform: rotate(360deg);
+                -o-transform: rotate(360deg);
+            }
+        }
+        @-webkit-keyframes minutes {
+            0% {
+                -webkit-transform: rotate(0deg);
+                -moz-transform: rotate(0deg);
+                -o-transform: rotate(0deg);
+            }
+
+            100% {
+                -webkit-transform: rotate(360deg);
+                -moz-transform: rotate(360deg);
+                -o-transform: rotate(360deg);
+            }
+        }
+        @-o-keyframes minutes {
+            0% {
+                -webkit-transform: rotate(0deg);
+                -moz-transform: rotate(0deg);
+                -o-transform: rotate(0deg);
+            }
+
+            100% {
+                -webkit-transform: rotate(360deg);
+                -moz-transform: rotate(360deg);
+                -o-transform: rotate(360deg);
+            }
+        }
+
+
+
+        .box ul li{
+            height:1px;
+            line-height:1px;
+            font-size:1px;
+            width:140px;
+            display:block;
+            border-left:10px solid #999;
+            position:absolute;
+            -webkit-transform-origin: right bottom;
+            -moz-transform-origin: right bottom;
+            -o-transform-origin: right bottom;
+            top:150px;
+            right:150px;
+            z-index:1;
+        }
+        .box ul li:after{
+            display:block;
+            width:14px;
+            height:14px;
+            line-height:14px;
+            color:#666;
+            content:"";
+            left:5px;
+            top:-8px;
+            position:absolute;
+            font-size:13px;
+            text-align:center;
+            font-weight:bold;
+        }
+        .box ul li:nth-child(1):after{
+            content:"10";
+            -webkit-transform: rotate(-30deg);
+            -moz-transform: rotate(-30deg);
+            -o-transform: rotate(-30deg);
+        }
+        .box ul li:nth-child(2):after{
+            content:"11";
+            -webkit-transform: rotate(-60deg);
+            -moz-transform: rotate(-60deg);
+            -o-transform: rotate(-60deg);
+        }
+        .box ul li:nth-child(3):after{
+            content:"12";
+            -webkit-transform: rotate(-90deg);
+            -moz-transform: rotate(-90deg);
+            -o-transform: rotate(-90deg);
+        }
+        .box ul li:nth-child(4):after{
+            content:"1";
+            -webkit-transform: rotate(-120deg);
+            -moz-transform: rotate(-120deg);
+            -o-transform: rotate(-120deg);
+        }
+        .box ul li:nth-child(5):after{
+            content:"2";
+            -webkit-transform: rotate(-150deg);
+            -moz-transform: rotate(-150deg);
+            -o-transform: rotate(-150deg);
+        }
+        .box ul li:nth-child(6):after{
+            content:"3";
+            -webkit-transform: rotate(-180deg);
+            -moz-transform: rotate(-180deg);
+            -o-transform: rotate(-180deg);
+        }
+        .box ul li:nth-child(7):after{
+            content:"4";
+            -webkit-transform: rotate(-210deg);
+            -moz-transform: rotate(-210deg);
+            -o-transform: rotate(-210deg);
+        }
+        .box ul li:nth-child(8):after{
+            content:"5";
+            -webkit-transform: rotate(-240deg);
+            -moz-transform: rotate(-240deg);
+            -o-transform: rotate(-240deg);
+        }
+        .box ul li:nth-child(9):after{
+            -webkit-transform: rotate(-270deg);
+            -moz-transform: rotate(-270deg);
+            -o-transform: rotate(-270deg);
+            content:"6";
+        }
+        .box ul li:nth-child(10):after{
+            content:"7";
+            -webkit-transform: rotate(-300deg);
+            -moz-transform: rotate(-300deg);
+            -o-transform: rotate(-300deg);
+        }
+        .box ul li:nth-child(11):after{
+            content:"8";
+            -webkit-transform: rotate(-330deg);
+            -moz-transform: rotate(-330deg);
+            -o-transform: rotate(-330deg);
+        }
+        .box ul li:nth-child(12):after{
+            content:"9";
+        }
+        .box ul li:nth-child(1){
+            -webkit-transform: rotate(30deg);
+            -moz-transform: rotate(30deg);
+            -o-transform: rotate(30deg);
+        }
+
+        .box ul li:nth-child(2){
+            -webkit-transform: rotate(60deg);
+            -moz-transform: rotate(60deg);
+            -o-transform: rotate(60deg);
+        }
+        .box ul li:nth-child(3){
+            -webkit-transform: rotate(90deg);
+            -moz-transform: rotate(90deg);
+            -o-transform: rotate(90deg);
+        }
+        .box ul li:nth-child(4){
+            -webkit-transform: rotate(120deg);
+            -moz-transform: rotate(120deg);
+            -o-transform: rotate(120deg);
+        }
+        .box ul li:nth-child(5){
+            -webkit-transform: rotate(150deg);
+            -moz-transform: rotate(150deg);
+            -o-transform: rotate(150deg);
+        }
+        .box ul li:nth-child(6){
+            -webkit-transform: rotate(180deg);
+            -moz-transform: rotate(180deg);
+            -o-transform: rotate(180deg);
+        }
+        .box ul li:nth-child(7){
+            -webkit-transform: rotate(210deg);
+            -moz-transform: rotate(210deg);
+            -o-transform: rotate(210deg);
+        }
+        .box ul li:nth-child(8){
+            -webkit-transform: rotate(240deg);
+            -moz-transform: rotate(240deg);
+            -o-transform: rotate(240deg);
+        }
+        .box ul li:nth-child(9){
+            -webkit-transform: rotate(270deg);
+            -moz-transform: rotate(270deg);
+            -o-transform: rotate(270deg);
+        }
+        .box ul li:nth-child(10){
+            -webkit-transform: rotate(300deg);
+            -moz-transform: rotate(300deg);
+            -o-transform: rotate(300deg);
+        }
+        .box ul li:nth-child(11){
+            -webkit-transform: rotate(330deg);
+            -moz-transform: rotate(330deg);
+            -o-transform: rotate(330deg);
+        }
+    </style>
+</head>
+
+<body>
+<div class="box">
+    <div class="hours"></div>
+    <div class="minutes"></div>
+    <div class="seconds"></div>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+    <script src="promise-7.0.1.min.js"></script>
+</head>
+<body>
+	<script> 
+	
+	console.log("-----------一般的处理------------------");
+	setTimeout(function(){
+		console.log("1");		
+		setTimeout(function(){
+			console.log("2");		
+			setTimeout(function(){
+				console.log("3");
+			},1000)
+		},1000)
+	},1000)
+	
+	console.log("-----------promise------------------");
+	
+	var L=
+	{
+		setTimeout:function (time)
+		{
+		    return new Promise(function(resolve,reject){
+				setTimeout(function(){
+				   resolve();
+				},time)			
+			});
+			
+		}
+	}
+	
+	L.setTimeout(1000).then(function(){
+		console.log("5");})
+		.then(function(){return L.setTimeout(1000)})
+		.then(function(){
+		    console.log("6");})
+		.then(function(){return L.setTimeout(1000)})
+		.then(function(){
+		    console.log("7");});
+	
+	
+	
+	</script>
+	
+	
+	
+</body>
+</html>

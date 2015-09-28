@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+	foo = function() {
+        this.myName = "Foo function.";
+    }
+    foo.prototype.sayHello = function() {
+        console.log(this.myName);
+    }
+    foo.prototype.bar = function() {
+		var that =this;
+        setTimeout(this.sayHello, 1000);
+    }
+	
+	foo.prototype.bar2 = function() {
+		var that =this;
+        setTimeout(function(){that.sayHello();}, 100);
+    }
+    var f = new foo();
+    f.bar();
+	f.bar2();
+	function sayHello()
+	{
+		console.log("globe sayName;");
+	}
+	
+	
+	var myName="globle myName";
+	
+	console.log("hahah");
+	
+	</script>
+</head>
+<body>
+	
+</body>
+</html>
