@@ -1,14 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8" />
-	<title>Document</title>
-    <script src="promise-7.0.1.min.js"></script>
-</head>
-<body>
-	<script> 
+
+require(['promise'],function(){
 	
-	console.log("-----------一般的处理------------------");
+	console.log("-----------callback------------------");
 	setTimeout(function(){
 		console.log("1");		
 		setTimeout(function(){
@@ -27,7 +20,7 @@
 		{
 		    return new Promise(function(resolve,reject){
 				setTimeout(function(){
-				   resolve();
+				   resolve();//调用的方式
 				},time)			
 			});
 			
@@ -36,7 +29,7 @@
 	
 	L.setTimeout(1000).then(function(){
 		console.log("5");})
-		.then(function(){return L.setTimeout(1000)})
+		.then(function(){return L.setTimeout(1000)})//定义
 		.then(function(){
 		    console.log("6");})
 		.then(function(){return L.setTimeout(1000)})
@@ -45,9 +38,6 @@
 	
 	
 	
-	</script>
 	
 	
-	
-</body>
-</html>
+})
