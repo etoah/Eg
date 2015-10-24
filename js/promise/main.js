@@ -1,8 +1,10 @@
 
-require(['rsvp'],function(rsvp){
+require(['require'],function(require){
 	
-    if(window.Promise)
-	{window.Promise=rsvp.Promise};
+    if(!window.Promise)
+    {
+        window.Promise=require("rsvp").Promise;
+    }
 	console.log("-----------callback------------------");
 	setTimeout(function(){
 		console.log("1");		
