@@ -2,12 +2,21 @@
 <html ng-app> 
   <head> 
     <script src="http://cdn.bootcss.com/angular.js/1.4.1/angular.js"></script>
+    <script src="js/phone.js"></script>
   </head> 
   <body> 
     <div> 
       <input type="text" ng-model="yourName" placeholder="Enter a name here"> 
       <h1>Hello, {{ yourName }}!</h1>
       <p>1+2={{1+2}}</p>
-    </div> 
+    </div>
+  <div ng-controller="phoneListCtrl">
+    <p>{{hello}}</p>
+    <ul>
+      <li ng-repeat="phone in phones">
+        {{phone.name}}
+      </li>
+    </ul>
+  </div>
   </body> 
 </html> 
