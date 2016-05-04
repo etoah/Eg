@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+
+<script>
+	(function () {
+		var ARROW_ARG = /^([^\(]+?)=>/;
+		var FN_ARGS = /^[^\(]*\(\s*([^\)]*)\)/m;
+		var STRIP_COMMENTS = /((\/\/.*$)|(\/\*[\s\S]*?\*\/))/mg;
+
+		function extractArgs(fn) {
+			var fnText = fn.toString().replace(STRIP_COMMENTS, ''),
+					args = fnText.match(ARROW_ARG) || fnText.match(FN_ARGS);
+			return args[1].split(',');
+		}
+
+		function createInjector(cache) {
+			this.cache = cache;
+
+		}
+
+		createInjector.prototype = {
+			invoke: function (fn, self) {
+				argsString = extractArgs(fn);
+				args = [];
+				argsString.forEach(function (val) {
+					args.push(this.cache[val.trim()]);
+				}, this)
+				return fn.apply(self, args);
+			},
+
+			get: function (name) {
+				return this.cache[name]
+			}
+
+		};
+
+		createInjector.prototype.constructor = createInjector;
+
+
+		function angular() {
+		}
+
+		angular.module = function () {
+			modules = {};
+			injector = new createInjector(modules);
+			return {
+				$injector: injector,
+				factory: function (name, fn) {
+					modules[name.trim()] = this.$injector.invoke(fn);
+					return this;
+				}
+			}
+		};
+
+
+		window.angular = angular;
+
+	})();
+
+
+	angular.module()
+			.factory("minus", function () {
+				return function (a, b) {
+					return a - b
+				}
+			})
+			.factory("plus", function () {
+				return function (a, b) {
+					return a + b
+				}
+			})
+			.factory("complex", function (minus, plus) {
+				return function (a, b) {
+					return minus(a, b) + plus(a, b)
+				}
+			})
+			.$injector.invoke(function (minus, plus,complex) {
+				console.log(minus(3, 1));
+				console.log(plus(3, 1));
+				console.log(complex(3, 1));
+			});
+
+
+</script>
+</body>
+</html>
