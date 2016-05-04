@@ -9,13 +9,9 @@
 
 <script>
 	(function () {
-		var ARROW_ARG = /^([^\(]+?)=>/;
-		var FN_ARGS = /^[^\(]*\(\s*([^\)]*)\)/m;
-		var STRIP_COMMENTS = /((\/\/.*$)|(\/\*[\s\S]*?\*\/))/mg;
 
-		function extractArgs(fn) {
-			var fnText = fn.toString().replace(STRIP_COMMENTS, ''),
-					args = fnText.match(ARROW_ARG) || fnText.match(FN_ARGS);
+		function extractArgs(fn) { //angular 这里还加了注释、箭头函数的处理
+			var args = fn.toString().match(/^[^\(]*\(\s*([^\)]*)\)/m);
 			return args[1].split(',');
 		}
 
@@ -30,18 +26,12 @@
 				args = [];
 				argsString.forEach(function (val) {
 					args.push(this.cache[val.trim()]);
-				}, this)
+				}, this);
 				return fn.apply(self, args);
-			},
-
-			get: function (name) {
-				return this.cache[name]
 			}
-
 		};
 
 		createInjector.prototype.constructor = createInjector;
-
 
 		function angular() {
 		}
@@ -57,7 +47,6 @@
 				}
 			}
 		};
-
 
 		window.angular = angular;
 
@@ -80,11 +69,11 @@
 					return minus(a, b) + plus(a, b)
 				}
 			})
-			.$injector.invoke(function (minus, plus,complex) {
-				console.log(minus(3, 1));
-				console.log(plus(3, 1));
-				console.log(complex(3, 1));
-			});
+			.$injector.invoke(function (minus, plus, complex) {
+		console.log(minus(3, 1));
+		console.log(plus(3, 1));
+		console.log(complex(3, 1));
+	});
 
 
 </script>
