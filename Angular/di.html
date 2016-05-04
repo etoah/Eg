@@ -40,9 +40,9 @@
 			modules = {};
 			injector = new createInjector(modules);
 			return {
-				$injector: injector,
+				injector: injector,
 				factory: function (name, fn) {
-					modules[name.trim()] = this.$injector.invoke(fn);
+					modules[name.trim()] = this.injector.invoke(fn);
 					return this;
 				}
 			}
@@ -69,7 +69,7 @@
 					return minus(a, b) + plus(a, b)
 				}
 			})
-			.$injector.invoke(function (minus, plus, complex) {
+			.injector.invoke(function (minus, plus, complex) { //angular 没有这个属性，为了展示方便这样写
 		console.log(minus(3, 1));
 		console.log(plus(3, 1));
 		console.log(complex(3, 1));
